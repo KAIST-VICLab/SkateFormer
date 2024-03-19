@@ -25,13 +25,9 @@
 
 ---
 
-<div align="center">
-    <h4>
-        This repository is the official PyTorch implementation of "SkateFormer: Skeletal-Temporal Transformer for Human Action Recognition". 
-SkateFormer achieves state-of-the-art performance in both skeleton-based action recognition and interaction recognition.
-    </h4>
-</div>
-
+<h4>
+This repository is the official PyTorch implementation of "SkateFormer: Skeletal-Temporal Transformer for Human Action Recognition". SkateFormer achieves state-of-the-art performance in both skeleton-based action recognition and interaction recognition.
+</h4>
 
 ![](assets/motiv.png)
 
