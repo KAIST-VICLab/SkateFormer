@@ -18,7 +18,7 @@
         <a href="https://arxiv.org/abs/2403.09508" target='_blank'>
         <img src="https://img.shields.io/badge/arXiv-2403.09508-b31b1b.svg">
         </a>
-        <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/JeonghyeokDo/SkateFormer">
+        <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/KAIST-VICLab/SkateFormer">
     </h4>
 </div>
 
