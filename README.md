@@ -21,6 +21,7 @@
         <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/KAIST-VICLab/SkateFormer">
     </h4>
 </div>
+</div>
 
 ---
 
