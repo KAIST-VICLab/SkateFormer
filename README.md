@@ -48,7 +48,7 @@ This repository is the official PyTorch implementation of "SkateFormer: Skeletal
 ---
 
 #### News
-- **Mar 15, 2024:** This repository is created
+- **Mar 19, 2024:** This repository is created
 
 ---
 ## Reference
