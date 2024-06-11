@@ -1,0 +1,62 @@
+seed: 1
+num_worker: 4
+work_dir: ./work_dir/nw_ucla/SkateFormer_b/
+
+phase: train
+
+# feeder
+feeder: feeders.feeder_ucla.Feeder
+train_feeder_args:
+  data_path: ./data/NW-UCLA/all_sqe/
+  label_path: 'train'
+  data_type: 'b'
+  repeat: 10
+  p: 0.5
+  debug: False
+  partition: True
+
+test_feeder_args:
+  data_path: ./data/NW-UCLA/all_sqe/
+  label_path: 'val'
+  data_type: 'b'
+  repeat: 1
+  partition: True
+
+# model
+model: model.SkateFormer.SkateFormer_
+model_args:
+  num_classes: 10
+  num_people: 1
+  num_points: 20
+  kernel_size: 7
+  num_heads: 32
+  attn_drop: 0.5
+  head_drop: 0.0
+  rel: True
+  drop_path: 0.2
+  type_1_size: [8, 4]
+  type_2_size: [8, 5]
+  type_3_size: [8, 4]
+  type_4_size: [8, 5]
+  mlp_ratio: 1.0
+  index_t: True
+
+#optim
+optimizer: AdamW
+weight_decay: 0.1
+lr_scheduler: cosine
+base_lr: 1e-3
+min_lr: 1e-5
+warmup_lr: 1e-7
+warmup_prefix: False
+warm_up_epoch: 25
+
+# training
+device: [0]
+batch_size: 128
+test_batch_size: 128
+num_epoch: 500
+nesterov: True
+grad_clip: True
+grad_max: 1.0
+loss_type: LSCE

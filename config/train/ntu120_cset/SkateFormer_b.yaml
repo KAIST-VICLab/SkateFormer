@@ -1,0 +1,71 @@
+seed: 1
+num_worker: 4
+work_dir: ./work_dir/ntu120/cset/SkateFormer_b/
+
+phase: train
+
+# feeder
+feeder: feeders.feeder_ntu.Feeder
+train_feeder_args:
+  data_path: ./data/ntu120/NTU120_CSet.npz
+  split: train
+  data_type: b
+  debug: False
+  window_size: 64
+  p_interval: [0.5, 1]
+  aug_method: a123489
+  intra_p: 0.5
+  inter_p: 0.2
+  thres: 64
+  uniform: True
+  partition: True
+
+test_feeder_args:
+  data_path: ./data/ntu120/NTU120_CSet.npz
+  split: test
+  data_type: b
+  window_size: 64
+  p_interval: [0.95]
+  thres: 64
+  uniform: True
+  partition: True
+  debug: False
+
+# model
+model: model.SkateFormer.SkateFormer_
+model_args:
+  num_classes: 120
+  num_people: 2
+  num_points: 24
+  kernel_size: 7
+  num_heads: 32
+  attn_drop: 0.5
+  head_drop: 0.0
+  rel: True
+  drop_path: 0.2
+  type_1_size: [8, 8]
+  type_2_size: [8, 12]
+  type_3_size: [8, 8]
+  type_4_size: [8, 12]
+  mlp_ratio: 4.0
+  index_t: True
+
+#optim
+optimizer: AdamW
+weight_decay: 0.1
+lr_scheduler: cosine
+base_lr: 1e-3
+min_lr: 1e-5
+warmup_lr: 1e-7
+warmup_prefix: False
+warm_up_epoch: 25
+
+# training
+device: [0]
+batch_size: 128
+test_batch_size: 128
+num_epoch: 500
+nesterov: True
+grad_clip: True
+grad_max: 1.0
+loss_type: LSCE
