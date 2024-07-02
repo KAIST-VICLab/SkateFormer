@@ -1,5 +1,5 @@
 <div align="center">
-<h2>SkateFormer: Skeletal-Temporal Transformer for Human Action Recognition</h2>
+<h2>SkateFormer: Skeletal-Temporal Transformer for Human Action Recognition (ECCV 2024)</h2>
 
 <div>    
     <a href='https://sites.google.com/view/jeonghyeokdo/' target='_blank'>Jeonghyeok Do</a>
@@ -37,6 +37,7 @@ This repository is the official PyTorch implementation of "SkateFormer: Skeletal
 ---
 
 ## 📧 News
+- **Jul 1, 2024:** SkateFormer accepted to ECCV 2024 :tada:
 - **Jun 11, 2024:** Codes of SkateFormer (including the training, testing code, and pretrained model) are released :fire:
 - **Mar 19, 2024:** This repository is created
 
