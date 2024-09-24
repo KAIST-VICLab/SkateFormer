@@ -130,7 +130,7 @@ This repository is the official PyTorch implementation of "SkateFormer: Skeletal
 ```
 
 ## Pretrained Model
-Pre-trained model can be downloaded from [here](https://www.dropbox.com/scl/fi/nws5fxkul6npxgb6wgx1a/pretrained.zip?rlkey=97rk2xsz27wl7p7hg4po5so3y&st=0db0h8cv&dl=0).
+Pre-trained model can be downloaded from [here](https://www.dropbox.com/scl/fo/idwyjcyrl53gfknlnpawd/AIUJRWutBL44Frh0d0JsMCg?rlkey=zg85z3sfsn3okux2yobdsoxob&st=pgpogp6c&dl=0).
 * *pretrained.zip*: trained on NTU RGB+D, NTU RGB+D 120, NTU-Inter, NTU-Inter 120 and NW-UCLA.
 
 ## Training
