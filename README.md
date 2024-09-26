@@ -18,6 +18,10 @@
         <a href="https://arxiv.org/abs/2403.09508" target='_blank'>
         <img src="https://img.shields.io/badge/arXiv-2403.09508-b31b1b.svg">
         </a>
+        </a>
+        <a href="https://www.youtube.com/watch?v=kbYexZ-LfTM" target='_blank'>
+        <img src="https://img.shields.io/badge/Presentation-%23FF0000.svg?logo=YouTube&logoColor=white">
+        </a>
         <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/KAIST-VICLab/SkateFormer">
     </h4>
 </div>
@@ -37,6 +41,7 @@ This repository is the official PyTorch implementation of "SkateFormer: Skeletal
 ---
 
 ## 📧 News
+- **Sep 26, 2024:** Youtube video about SkateFormer is uploaded :sparkles:
 - **Jul 1, 2024:** SkateFormer accepted to ECCV 2024 :tada:
 - **Jun 11, 2024:** Codes of SkateFormer (including the training, testing code, and pretrained model) are released :fire:
 - **Mar 19, 2024:** This repository is created
