@@ -13,7 +13,7 @@
 <div>
     <h4 align="center">
         <a href="https://kaist-viclab.github.io/SkateFormer_site/" target='_blank'>
-        <img src="https://img.shields.io/badge/Project%20Page-blue?logo=homepage&logoColor=white">
+        <img src="https://img.shields.io/badge/🏠-Project%20Page-blue">
         </a>
         <a href="https://arxiv.org/abs/2403.09508" target='_blank'>
         <img src="https://img.shields.io/badge/arXiv-2403.09508-b31b1b.svg">
