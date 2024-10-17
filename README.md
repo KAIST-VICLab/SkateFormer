@@ -89,7 +89,7 @@ This repository is the official PyTorch implementation of "SkateFormer: Skeletal
 
 #### NTU RGB+D and NTU RGB+D 120
 
-1. Request dataset [here](https://rose1.ntu.edu.sg/dataset/actionRecognition)
+1. Request dataset from [here](https://rose1.ntu.edu.sg/dataset/actionRecognition)
 2. Download the skeleton-only datasets:
    1. `nturgbd_skeletons_s001_to_s017.zip` (NTU RGB+D)
    2. `nturgbd_skeletons_s018_to_s032.zip` (NTU RGB+D 120)
