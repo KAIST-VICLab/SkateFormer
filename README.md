@@ -52,13 +52,13 @@ This repository is the official PyTorch implementation of "SkateFormer: Skeletal
 ---
 ## Reference
 ```BibTeX
-@misc{do2024skateformer,
-      title={SkateFormer: Skeletal-Temporal Transformer for Human Action Recognition},
-      author={Jeonghyeok Do and Munchurl Kim},
-      year={2024},
-      eprint={2403.09508},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV}
+@inproceedings{do2025skateformer,
+  title={Skateformer: skeletal-temporal transformer for human action recognition},
+  author={Do, Jeonghyeok and Kim, Munchurl},
+  booktitle={European Conference on Computer Vision},
+  pages={401--420},
+  year={2025},
+  organization={Springer}
 }
 ```
 ---
