@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "skateformer"
+version = "0.1.0"
+description = "SkateFormer: Skeletal-Temporal Transformer for Human Action Recognition (ECCV 2024)"
+readme = "README.md"
+requires-python = ">=3.8"
+authors = [
+    { name = "Jeonghyeok Do" },
+    { name = "Munchurl Kim" },
+]
+keywords = ["skeleton", "action-recognition", "transformer", "eccv2024"]
+dependencies = [
+    "torch>=1.13",
+    "timm>=0.6.12",
+    "numpy",
+    "huggingface_hub>=0.23",
+    "safetensors",
+]
+
+[project.urls]
+Homepage = "https://kaist-viclab.github.io/SkateFormer_site/"
+Repository = "https://github.com/KAIST-VICLab/SkateFormer"
+Paper = "https://huggingface.co/papers/2403.09508"
+
+[tool.setuptools.packages.find]
+include = ["skateformer*"]

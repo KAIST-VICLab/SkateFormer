@@ -44,6 +44,7 @@ This repository is the official PyTorch implementation of "SkateFormer: Skeletal
 ---
 
 ## 📧 News
+- **Aug 3, 2026:** Pretrained models are available on [Hugging Face](https://huggingface.co/JeonghyeokDo/SkateFormer), loadable with `from_pretrained` :hugs:
 - **Sep 26, 2024:** Youtube video about SkateFormer is uploaded :sparkles:
 - **Jul 1, 2024:** SkateFormer accepted to ECCV 2024 :tada:
 - **Jun 11, 2024:** Codes of SkateFormer (including the training, testing code, and pretrained model) are released :fire:
@@ -67,6 +68,7 @@ This repository is the official PyTorch implementation of "SkateFormer: Skeletal
 - [Requirements](#requirements)
 - [Data Preparation](#data-preparation)
 - [Pretrained Model](#pretrained-model)
+- [Hugging Face](#-hugging-face)
 - [Training](#training)
 - [Testing](#testing)
 - [Results](#results)
@@ -140,6 +142,61 @@ This repository is the official PyTorch implementation of "SkateFormer: Skeletal
 ## Pretrained Model
 Pre-trained model can be downloaded from [here](https://drive.google.com/file/d/16dBg4nq91dUYqVqB4W0d8r4TzOMe0U2u/view?usp=sharing).
 * *pretrained.zip*: trained on NTU RGB+D, NTU RGB+D 120, NTU-Inter, NTU-Inter 120 and NW-UCLA.
+
+## 🤗 Hugging Face
+All 14 pre-trained checkpoints are also hosted on the Hugging Face Hub at
+[**JeonghyeokDo/SkateFormer**](https://huggingface.co/JeonghyeokDo/SkateFormer), one
+sub-directory per dataset / protocol / modality. This does not require downloading
+*pretrained.zip*.
+
+```bash
+pip install git+https://github.com/KAIST-VICLab/SkateFormer.git
+```
+
+```python
+import torch
+from skateformer import SkateFormer
+
+model = SkateFormer.from_pretrained(
+    "JeonghyeokDo/SkateFormer", subfolder="ntu60-xsub-joint"
+).eval()
+
+x = torch.randn(1, 3, 64, 24, 2)      # [B, C, T, V, M], joint-partitioned
+with torch.no_grad():
+    logits = model(x)                 # -> [1, 60]
+
+print(model.id2label[logits.argmax(-1).item()])
+```
+
+`skateformer.preprocessing.prepare_input` reproduces the evaluation-time path of `feeders/`
+(modality conversion, 64-frame resampling, skeletal partitioning) for raw skeletons:
+
+```python
+import numpy as np
+from skateformer.preprocessing import prepare_input
+
+raw = np.random.randn(3, 300, 25, 2)  # [C, T, V, M] raw NTU skeleton
+x, index_t = prepare_input(raw, valid_frame_num=120, layout="ntu", modality="j")
+with torch.no_grad():
+    logits = model(x, index_t)
+```
+
+| `subfolder` | Dataset | Protocol | Modality | Classes |
+|---|---|---|---|---|
+| `ntu60-xsub-joint` / `ntu60-xsub-bone` | NTU RGB+D 60 | X-Sub | joint / bone | 60 |
+| `ntu60-xview-joint` / `ntu60-xview-bone` | NTU RGB+D 60 | X-View | joint / bone | 60 |
+| `ntu120-xsub-joint` / `ntu120-xsub-bone` | NTU RGB+D 120 | X-Sub | joint / bone | 120 |
+| `ntu120-xset-joint` / `ntu120-xset-bone` | NTU RGB+D 120 | X-Set | joint / bone | 120 |
+| `ntu60-inter-xsub-joint` | NTU-Inter | X-Sub | joint | 11 |
+| `ntu60-inter-xview-joint` | NTU-Inter | X-View | joint | 11 |
+| `ntu120-inter-xsub-joint` | NTU-Inter 120 | X-Sub | joint | 26 |
+| `ntu120-inter-xset-joint` | NTU-Inter 120 | X-Set | joint | 26 |
+| `nwucla-joint` / `nwucla-bone` | NW-UCLA | official split | joint / bone | 10 |
+
+The `skateformer/` package is a packaging layer only: `skateformer/modeling_skateformer.py`
+keeps the module and parameter names of `model/SkateFormer.py` unchanged, so the released
+`.pt` files load into it as-is and weights pulled from the Hub load back into the training
+code in this repository. `main.py` and everything under `model/` are untouched.
 
 ## Training
 ```bash
